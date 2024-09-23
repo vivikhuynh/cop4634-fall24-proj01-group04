@@ -2,16 +2,17 @@ Project 1: myshell
 
 Members: Nini Huynh, Vivi Huynh 
 
-Desciption: 
-This project implements a simplified shell program that reads commands from the user, parses them, and executes them. It supports input/output redirection, background execution, and can handle a maximum of 32 arguments.
+Description: 
+The purpose of myshell is to develop a lightweight shell that can manage background processes and input/output redirection in addition to receiving commands from the user, parsing them into an organized format, and executing them. This project focuses on process management and synchronization. 
 
 Files: 
-- myshell.cpp: The main shell loop, handling user input and managing debugging output.
-- parse.cpp: Implements the command line parser that breaks user input into tokens.
-- parse.hpp: Exposes the functionality of the parser for the shell to use.
-- param.cpp: Implements the Param class, responsible for storing the parsed input.
-- param.hpp: Defines the Param class and its member funtions and data members.
-- Makefile: Automates the build process for compiling and linking all source files. 
+- myshell.cpp: implements the main shell functionality.
+- parse.cpp: contains the command-line parsing logic.
+- parse.hpp: defines the parsing functions and structures.
+- param.cpp: implements the Param class for storing command parameters.
+- param.hpp: defines the Param class and its methods.
+- Makefile: Automates the build process.
+- README.md: documentation for the project.
 
 How to Compile:
 1. Open a terminal and navigate to the project directory.
@@ -22,10 +23,17 @@ How to Run:
 1. Run make -> ./myshell to start the shell in normal mode. 
 2. If you want to run the shell in debug mode, run the following command: ./myshell -Debug
 This will display additional debug information such as parsed tokens and redirection details. 
-3. To exit the shell, type exit and press enter. 
+- 'ls' :list files in the current directory.
+- 'ls > output.txt' :redirect the output of 'ls' to a file named 'output.txt'.
+- 'cat < input.txt' :display the contents of 'input.txt'.
+- 'cat < input.txt &' :display the contents of 'input.txt' in the background.
+- './slow &' :run the slow program in the background.
+3. To exit the shell, type 'exit' and press enter. 
 
 Features: 
-The shell supports background execution using the & character. When the & is placed at the end of the command, the shell will run the process in the background.
-Input and output redirection are supported using < for input file and > for output files.
-Example command: command < inputfile > outputfile &
-This command executes command with input from inputfile and writes the outputfile, all in the background. 
+- Displays a custom shell prompt ('$$$').
+- Accepts user commands until 'exit' is entered.
+- Parses commands into tokens.
+- Supports input ('<') and output ('>') redirection.
+- Allows commands to run in the background ('&').
+- Provides a debug mode that displays parsed command parameters. 
